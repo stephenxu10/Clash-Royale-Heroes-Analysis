@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
+import mplcursors
 import argparse
 
 def falling_factorial(x: int, y: int) -> int:
@@ -47,21 +49,33 @@ def plot_discrete_pmf(
     ylabel: str = "Probability",
     log_scale: bool = False
 ):
-    """
-    Plots a discrete probability distribution (PMF).
-    """
     x = sorted(dist.keys())
     y = [dist[k] for k in x]
 
-    plt.figure()
-    plt.bar(x, y)
+    fig, ax = plt.subplots(figsize=(10, 5))
+    bars = ax.bar(x, y)
+
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.set_xlim(min(x) - 0.5, max(x) + 0.5)
 
     if log_scale:
-        plt.yscale("log")
+        ax.set_yscale("log")
 
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+
+    cursor = mplcursors.cursor(bars, hover=True)
+
+    @cursor.connect("add")
+    def on_add(sel):
+        k = x[sel.index]
+        p = y[sel.index]
+        sel.annotation.set_text(
+            f"k = {k}\nP = {p:.6g}"
+        )
+        sel.annotation.get_bbox_patch().set(alpha=0.9)
+
     plt.tight_layout()
     plt.show()
 
@@ -101,4 +115,30 @@ if __name__ == "__main__":
         description='Finds the probability distribution of unique heroes from repeated hero summons.'
     )
     
-    print(probability_distribution(30, 20))
+    parser.add_argument(
+        "-n", "--heroes", required=True, type=int,
+        help="The number of heroes in the game"
+    )
+
+    parser.add_argument(
+        "-s", "--summons", required=True,  type=int,
+        help="The number of times you summon a hero"
+    )
+
+    parser.add_argument('-l', "--log", action="store_true", help='Flag for using a log scale')
+    args = parser.parse_args()
+    
+    n = args.heroes
+    m = args.summons
+    use_log = args.log
+
+    if n > 121:
+        print("WARNING: As of 12/18/25, there are only 121 cards in the game. I find it extremely unlikely there will be a hero for every current card.")
+
+    prob_dist = probability_distribution(m, n)
+    title = f"Unique Hero Distribution: {m} summons, {n} available heroes"
+    
+    if use_log:
+        title += " (log scale)"
+
+    plot_discrete_pmf(prob_dist, title, log_scale=use_log)

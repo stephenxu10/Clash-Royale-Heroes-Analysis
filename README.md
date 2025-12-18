@@ -19,17 +19,17 @@ To toy around with this yourself, first clone the repo:
 ```bash
 git clone https://github.com/stephenxu10/Clash-Royale-Heroes-Analysis
 ```
-Ensure you have Python and the ```matplotlib``` package installed. If not, run
+Install the required dependencies:
 ```bash
-pip install matplotlib
+pip install matplotlib mplcursors
 ```
 Now you are ready to explore the probability distributions for yourself. Use the following command structure:
 ```bash
-./clash -h <heroes> -s <summons> [-l]
+./clash -n <heroes> -s <summons> [-l]
 ```
 
 **Required Arguments:**
-- `-h <heroes>`: The number of heroes currently in the game. As of 12/18/25, there are four heroes in the game among 121 total cards.
+- `-n <heroes>`: The number of heroes currently in the game. As of 12/18/25, there are four heroes in the game among 121 total cards.
 - `-s <summons>`: The number of hero summons you perform. This number can be arbitrarily large, but keep in mind most free-to-play players can only do this once per month.
 
 **Optional Argument(s):**
