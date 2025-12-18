@@ -15,7 +15,7 @@ I assume:
 We will back our findings with combinatorics and programming. Math and Clash enthusiasts should check out the PDF file in this repo, where I explain the theory and answer the questions outlined above. Enjoy!
 
 # Usage
-To toy around with this yourself, first clone the repo:
+I've provided an executable ```./clash``` that performs the probability distribution generating. To toy around with this yourself, first clone the repo:
 ```bash
 git clone https://github.com/stephenxu10/Clash-Royale-Heroes-Analysis
 ```
@@ -27,6 +27,7 @@ Now you are ready to explore the probability distributions for yourself. Use the
 ```bash
 ./clash -n <heroes> -s <summons> [-l]
 ```
+This will generate a matplotlib plot of the uniqueness distribution.
 
 **Required Arguments:**
 - `-n <heroes>`: The number of heroes currently in the game. As of 12/18/25, there are four heroes in the game among 121 total cards.
