@@ -43,3 +43,8 @@ chmod a+x ./clash
 Example:
 ```bash
 ./clash -n 4 -s 20 -l
+```
+
+# Sample Output
+
+![Preview](images/sample.png)
