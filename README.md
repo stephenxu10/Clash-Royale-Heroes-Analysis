@@ -41,4 +41,4 @@ chmod a+x ./clash
 ```
 Example:
 ```bash
-./clash -h 4 -s 20
+./clash -n 4 -s 20 -l
