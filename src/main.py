@@ -40,6 +40,31 @@ def stirling(x: int) -> list:
 
     return dp[x]
 
+def plot_discrete_pmf(
+    dist: dict[int, float],
+    title: str = "Probability Distribution Plot",
+    xlabel: str = "# of Unique Heroes",
+    ylabel: str = "Probability",
+    log_scale: bool = False
+):
+    """
+    Plots a discrete probability distribution (PMF).
+    """
+    x = sorted(dist.keys())
+    y = [dist[k] for k in x]
+
+    plt.figure()
+    plt.bar(x, y)
+
+    if log_scale:
+        plt.yscale("log")
+
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.tight_layout()
+    plt.show()
+
 def probability_distribution(m: int, n: int) -> dict:
     """
     Computes the probability distribution of the number of unique
@@ -69,6 +94,7 @@ def probability_distribution(m: int, n: int) -> dict:
     # Quick sanity check to verify probabilities add to 1
     assert(abs(sum(dist.values()) - 1) < 10 ** -3)
     return dist
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
