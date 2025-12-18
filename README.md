@@ -9,6 +9,9 @@ In this repository, we will answer the following questions:
 - How are these probabilities distributed as $k$ goes from $1$ to $m$?
 - Is the hero unlock system really that bad?
 
+I assume:
+- Hero summons are independent of all previous summons and give equal probability of obtaining any hero in the game, regardless of which ones are currently unlocked.
+
 We will back our findings with combinatorics and programming. Math and Clash enthusiasts should check out the PDF file in this repo, where I explain the theory and answer the questions outlined above. Enjoy!
 
 # Usage
