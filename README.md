@@ -1,0 +1,31 @@
+# Overview
+
+Clash Royale is a mobile strategy game enjoyed by millions of players around the world, including myself. In December 2025, Clash Royale released an update featuring a brand-new gameplay feature: heroic cards. While heroes have introduced exciting and unique mechanics into the game, unlocking them has proven to be a laborious task. 
+
+Players unlock heroes by collecting 200 hero fragments, which automatically summons a heroic card. The trouble is, summoning a hero does not necessarily guarantee a *new* card. Rather, players run the risk of summoning a duplicate hero, which they are meagerly compensated for. Heroes are quite strong in Clash Royale, so players want to obtain as many unique heroes as possible. Therefore, many Clash Royale players are extremely frustrated by this process, calling it yet another cash grab by the creators. Although I personally resonate with these sentiments, this opens the door to discuss some very interesting mathematics. 
+
+In this repository, we will answer the following questions:
+- How likely is it to obtain $k$ unique heroes after $m$ hero summons, given that there are $n$ heroes currently in the game?
+- How are these probabilities distributed as $k$ goes from $1$ to $m$?
+- Is the hero unlock system really that bad?
+We will back our findings with combinatorics and programming. Math and Clash enthusiasts should check out the PDF file in this repo, where I explain the theory and answer the questions outlined above. Enjoy!
+
+# Usage
+To toy around with this yourself, first clone the repo:
+```bash
+https://github.com/stephenxu10/Clash-Royale-Heroes-Analysis
+```
+Ensure you have Python and the ```matplotlib``` package installed. If not, run
+```bash
+pip install matplotlib
+```
+Now you are ready to explore the probability distributions for yourself. Use the following command structure:
+```bash
+./clash -h <heroes> -s <summons>
+```
+
+**Required Arguments:**
+- `-h <heroes>`: The number of heroes currently in the game. As of 12/18/25, there are four heroes in the game among 121 total cards.
+- `-s <summons>`: The number of hero summons you perform. This number can be arbitrarily large, but keep in mind most free-to-play players can only do this once per month.
+
+
