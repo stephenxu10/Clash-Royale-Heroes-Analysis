@@ -136,6 +136,7 @@ if __name__ == "__main__":
         print("WARNING: As of 12/18/25, there are only 121 cards in the game. I find it extremely unlikely there will be a hero for every current card.")
 
     prob_dist = probability_distribution(m, n)
+    print(f"Expected number of unique heroes: {sum(n * prob_dist[n] for n in prob_dist)}")
     title = f"Unique Hero Distribution: {m} summons, {n} available heroes"
     
     if use_log:

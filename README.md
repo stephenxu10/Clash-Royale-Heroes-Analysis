@@ -15,7 +15,7 @@ I assume:
 We will back our findings with combinatorics and programming. Math and Clash enthusiasts should check out the PDF file in this repo, where I explain the theory and answer the questions outlined above. Enjoy!
 
 # Usage
-I've provided an executable ```./clash``` that performs the probability distribution generating. To toy around with this yourself, first clone the repo:
+I've provided an executable ```./plot``` that performs the probability distribution generating. To toy around with this yourself, first clone the repo:
 ```bash
 git clone https://github.com/stephenxu10/Clash-Royale-Heroes-Analysis
 ```
@@ -25,7 +25,7 @@ pip install matplotlib mplcursors
 ```
 Now you are ready to explore the probability distributions for yourself. Use the following command structure:
 ```bash
-./clash -n <heroes> -s <summons> [-l]
+./plot -n <heroes> -s <summons> [-l]
 ```
 This will generate a matplotlib plot of the uniqueness distribution.
 
@@ -36,13 +36,13 @@ This will generate a matplotlib plot of the uniqueness distribution.
 **Optional Argument(s):**
 - `-l`: Toggle for using a logarithmic scale.
 
-If you encounter a permission error when running ```./clash```, fix the permissions by executing:
+If you encounter a permission error when running ```./plot```, fix the permissions by executing:
 ```bash
-chmod a+x ./clash
+chmod a+x ./plot
 ```
 Example:
 ```bash
-./clash -n 4 -s 20 -l
+./plot -n 4 -s 20 -l
 ```
 
 # Sample Output
